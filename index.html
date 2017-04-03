@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+</head>
+<body ng-app="pokedex">
+
+	<div class="container" ng-controller="pokectrl2">
+		<h1>PokéYoussef</h1>
+
+		<!-- Search -->
+		<div>
+            <input type="text" ng-bind="id in List | filter:id" class="form-control" placeholder="ID..."> Id : {{ id }}
+            <input type="text" ng-model="nom" class="form-control" placeholder="Name for...">
+            <div class="dropdown">
+                <select class="dropdown-menu" role="menu" style="display: block" >
+                    <option ng-repeat="poke in Lists"><a> {{poke.pokemon_species.name}}</a></option>
+                </select>
+                    <button  ng-click="click()">
+                    Go!
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Pokémon information -->
+<!--        <div style="margin-top: 100px">{{Lists}}</div> -->
+
+        <!-- Pokémon information -->
+        <div style="margin-top: 50px">{{pokemon.id}}</div>
+
+        <!-- Pokémon information -->
+        <div style="margin-top: 50px">{{pokemon.name}}</div>
+
+		<!-- Pokémon information -->
+		<!--<div style="margin-top: 50px">{{pok.moves[55].move.name}}</div>-->
+
+        <div style="margin-top: 50px">
+        <select class="dropdown-menu" role="menu" style="display: block" >
+            <option ng-repeat="mv in pokemon.moves"><a> {{mv.move.name}}</a></option>
+        </select>
+        </div>
+
+	</div>
+
+    <!-- Dependencies -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+
+    <!-- Pokedex app -->
+    <script src="js/pokedex.js"></script>
+
+
+</body>
+</html>
